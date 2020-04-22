@@ -10,6 +10,7 @@ Output: 7 -> 0 -> 8
 Explanation: 342 + 465 = 807.
 """
 
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
@@ -18,4 +19,15 @@ Explanation: 342 + 465 = 807.
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        pass
+        num1 = self.getNumber(l1)
+        num2 = self.getNumber(l2)
+        result = str(num1 + num2)
+        print(result)
+
+    def getNumber(self, list_num: ListNode):
+        num1 = ''
+        n_list = list_num
+        while (n_list != None):
+            num1 += str(n_list.val)
+            n_list = n_list.next
+        return int(num1[::-1])
