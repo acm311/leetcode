@@ -22,7 +22,7 @@ class Solution:
         num1 = self.getNumber(l1)
         num2 = self.getNumber(l2)
         result = str(num1 + num2)
-        print(result)
+        return self.build_ListNode(result)
 
     def getNumber(self, list_num: ListNode):
         num1 = ''
@@ -31,3 +31,15 @@ class Solution:
             num1 += str(n_list.val)
             n_list = n_list.next
         return int(num1[::-1])
+
+    def build_ListNode(self, num_str):
+        print(num_str)
+        tmp = ListNode(num_str[0])
+        if len(num_str) > 1:
+            num = num_str[1:]
+            for c in num_str[1:]:
+                ln = ListNode(c)
+                ln.next = tmp
+                tmp = ln
+            return ln
+        return tmp
