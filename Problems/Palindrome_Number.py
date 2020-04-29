@@ -15,11 +15,11 @@ Example 3:
 Input: 10
 Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
-Follow up:
-
-Coud you solve it without converting the integer to a string?
 """
 
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        pass
+        num = str(x)
+        if num == num[::-1]:
+            return True
+        return False
