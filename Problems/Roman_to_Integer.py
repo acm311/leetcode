@@ -43,5 +43,27 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 """
 
 class Solution:
+
     def romanToInt(self, s: str) -> int:
-        pass
+        num = 0
+        romans = {}
+        romans['IV'] = 4
+        romans['IX'] = 9
+        romans['XL'] = 40
+        romans['XC'] = 90
+        romans['CD'] = 400
+        romans['CM'] = 900
+        romans['I'] = 1
+        romans['V'] = 5
+        romans['X'] = 10
+        romans['L'] = 50
+        romans['C'] = 100
+        romans['D'] = 500
+        romans['M'] = 1000
+
+        for k, v in romans.items():
+            occurrences = s.count(k)
+            if occurrences > 0:
+                s = s.replace(k, '')
+                num += v * occurrences
+        return num
