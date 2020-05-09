@@ -31,4 +31,9 @@ Output: true
 
 class Solution:
     def isValid(self, s: str) -> bool:
-        pass
+        if s.find('()') == -1 and s.find('[]') == -1 and s.find('{}') == -1:
+            if len(s) == 0:
+                return True
+            return False
+        else:
+            return self.isValid(s.replace('()', '').replace('[]', '').replace('{}', ''))
